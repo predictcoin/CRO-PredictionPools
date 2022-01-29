@@ -122,10 +122,8 @@ describe("Prediction Pool Contract Tests", () => {
     await prediction.startRound(tokens, startPrices);
     await passInterval(network, prediction);
     await prediction.endRound(tokens, endPrices);
-
     //start a new round to increase current epoch
     await prediction.startRound(tokens, startPrices);
-
     await pool.add(1);
     const newPool = await pool.poolInfo(0)
     expect(newPool.allocPoint.toString()).to.equal("200");
@@ -225,7 +223,6 @@ describe("Prediction Pool Contract Tests", () => {
     })
 
     it("it should withdraw user rewards with withdraw function", async () => {
-      await crp.transfer(wallet.address, (10**17).toString());
       const pending: BigNumber = await pool.pendingRewardToken(0, await PrederA.getAddress());
       let user = await pool.userInfo(0, await PrederA.getAddress())
 
@@ -242,7 +239,6 @@ describe("Prediction Pool Contract Tests", () => {
     })
 
     it("it should withdraw user rewards with deposit function", async () => {
-      await crp.transfer(wallet.address, (10**17).toString());
       const pending: BigNumber = await pool.pendingRewardToken(0, await PrederA.getAddress());
 
       await expect(() => pool.deposit(0, 0))
@@ -263,14 +259,13 @@ describe("Prediction Pool Contract Tests", () => {
       await crp.transfer(wallet.address, (10**17).toString());
       const pending: BigNumber = await pool.pendingRewardToken(0, await PrederA.getAddress());
       let user = await pool.userInfo(0, await PrederA.getAddress())
-      await pool.withdraw(0, depositA)
-      user = await pool.userInfo(0, await PrederA.getAddress())
-
+      // await pool.withdraw(0, depositA)
       await expect(() => pool.withdraw(0, depositA))
         .to.changeTokenBalances(
-          crp, [walletContract, PrederA], [BigNumber.from(0).sub(pending.mul(2)), pending.mul(2)]
+          crp, [wallet, PrederA], [BigNumber.from(0).sub(pending.mul(2)), pending.mul(2).add(depositA)]
         )
-
+      
+      user = await pool.userInfo(0, await PrederA.getAddress())
       expect(user.amount, "Total amount not withdrawn").to.equal(0)
       expect(user.rewardDebt, "Reward debt not removed").to.equal(0)
       expect(await pool.totalRewardDebt(), "TotalRewardDebt not reduced properly").to.equal(0)
@@ -288,7 +283,7 @@ describe("Prediction Pool Contract Tests", () => {
       await crp.approve(await pool.address, 100000000)
       await pool.updateMultiplier(multiplier)
       poolBefore = await pool.poolInfo(0)
-      await PrederA.sendTransaction({to: wallet.address, value: BigNumber.from((10**17).toString())});
+      await mff.transfer(wallet.address, (10**20).toString());
       await pool.deposit(0, depositA);
     })
 
@@ -320,6 +315,24 @@ describe("Prediction Pool Contract Tests", () => {
         )
       )
     })
+
+    it("it should withdraw user balance and rewards", async () => {
+      // const pending: BigNumber = await pool.pendingRewardToken(0, await PrederA.getAddress());
+      // await pool.withdraw(0, depositA)
+      await expect(() => pool.withdraw(0, depositA))
+        .to.changeTokenBalances(
+          mff, [wallet, PrederA], 
+          [
+            BigNumber.from(0).sub(BigNumber.from(rewardTokenPerBlock).mul(multiplier)), 
+            BigNumber.from(rewardTokenPerBlock).mul(multiplier)
+          ] 
+        )
+      
+      let user = await pool.userInfo(0, await PrederA.getAddress())
+      expect(user.amount, "Total amount not withdrawn").to.equal(0)
+      expect(user.rewardDebt, "Reward debt not removed").to.equal(0)
+      expect(await pool.totalRewardDebt(), "TotalRewardDebt not reduced properly").to.equal(0)
+    });
     // expect(await pool.totalRewardDebt()).to.equal(
     //   BigNumber.from(multiplier)
     //   .mul(rewardTokenPerBlock)

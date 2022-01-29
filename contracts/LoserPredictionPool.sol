@@ -2,23 +2,24 @@
 
 pragma solidity 0.8.2;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "./interfaces/IBEP20.sol";
-import "./interfaces/IPrediction.sol";
-import "./utils/SafeBEP20.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
 import "./PredictionWallet.sol";
+import "./interfaces/IBEP20.sol";
+import "./Prediction.sol";
 
 //import "hardhat/console.sol";
 
 //
 // Have fun reading it. Hopefully it's bug-free. God bless.
 contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradeable, OwnableUpgradeable{
-    using SafeMath for uint256;
-    using SafeBEP20 for IBEP20;
+    using SafeMathUpgradeable for uint256;
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 
     // Info of each user.
     struct UserInfo {
@@ -47,11 +48,11 @@ contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradea
     }
 
     // The CRP TOKEN!
-    IBEP20 public CRP;
+    IERC20Upgradeable public CRP;
     // The Reward token
-    IBEP20 public rewardToken;
+    IERC20Upgradeable public rewardToken;
     // Prediction contract
-    IPrediction public prediction;
+    Prediction public prediction;
     // tokens distributed per block.
     uint256 public rewardTokenPerBlock;
     // Bonus muliplier for early preders.
@@ -89,13 +90,13 @@ contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradea
 
     function initialize(
         address _operator,
-        IBEP20 _CRP,
-        IBEP20 _rewardToken,
+        IERC20Upgradeable _CRP,
+        IERC20Upgradeable _rewardToken,
         uint256 _rewardTokenPerBlock,
         uint256 _startBlock,
         uint256 _maxCRPDeposit,
         PredictionWallet _wallet,
-        IPrediction _prediction
+        Prediction _prediction
     ) external initializer {
         __Ownable_init();
 
@@ -125,12 +126,12 @@ contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradea
     
     function add(uint _epoch) external {
         // get Round for pid
-        (,,,, bool oraclesCalled1,,,,,,) = prediction.getRound(_epoch);
+        (,,,, bool oraclesCalled1) = prediction.rounds(_epoch);
         require(oraclesCalled1, "Round was not successful or not complete");
         
         uint256 currentEpoch = prediction.currentEpoch();
         if(currentEpoch != _epoch){
-            (,,,, bool oraclesCalled2,,,,,,) = prediction.getRound(currentEpoch);
+            (,,,, bool oraclesCalled2) = prediction.rounds(currentEpoch);
             require(!oraclesCalled2, "Current Round is already complete");
         }
         
@@ -325,7 +326,7 @@ contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradea
     // Safe CRP transfer function, just in case if rounding error causes pool to not have enough CRPs.
     function safeCRPTransfer(address _to, uint256 _amount) internal {
         totalRewardDebt = totalRewardDebt.sub(
-            wallet.safeTokenTransfer(rewardToken, _to, _amount)
+            wallet.safeTokenTransfer(address(rewardToken), _to, _amount)
         );
     }
     

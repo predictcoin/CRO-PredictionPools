@@ -2,21 +2,22 @@
 
 pragma solidity 0.8.2;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "./interfaces/IBEP20.sol";
-import "./interfaces/IPrediction.sol";
-import "./utils/SafeBEP20.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
 import "./PredictionWallet.sol";
+import "./interfaces/IBEP20.sol";
+import "./Prediction.sol";
 
 //import "hardhat/console.sol";
 // Have fun reading it. Hopefully it's bug-free. God bless.
 contract WinnerPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradeable, OwnableUpgradeable{
-    using SafeMath for uint256;
-    using SafeBEP20 for IBEP20;
+    using SafeMathUpgradeable for uint256;
+    using SafeERC20Upgradeable for IERC20Upgradeable; 
 
     // Info of each user.
     struct UserInfo {
@@ -45,9 +46,9 @@ contract WinnerPredictionPool is Initializable, PausableUpgradeable, UUPSUpgrade
     }
 
     // The CRP TOKEN!
-    IBEP20 public CRP;
+    IERC20Upgradeable public CRP;
     // Prediction contract
-    IPrediction public prediction;
+    Prediction public prediction;
     // CRP tokens distributed per block.
     uint256 public CRPPerBlock;
     // Bonus muliplier for early preders.
@@ -85,12 +86,12 @@ contract WinnerPredictionPool is Initializable, PausableUpgradeable, UUPSUpgrade
 
     function initialize(
         address _operator,
-        IBEP20 _CRP,
+        IERC20Upgradeable _CRP,
         uint256 _CRPPerBlock,
         uint256 _startBlock,
         uint256 _maxCRPDeposit,
         PredictionWallet _wallet,
-        IPrediction _prediction
+        Prediction _prediction
     ) external initializer {
         __Ownable_init();
         operatorAddress = _operator;
@@ -118,12 +119,12 @@ contract WinnerPredictionPool is Initializable, PausableUpgradeable, UUPSUpgrade
     
     function add(uint _epoch) external {
         // get Round for pid
-        (,,,, bool oraclesCalled1,,,,,,) = prediction.getRound(_epoch);
+        (,,,, bool oraclesCalled1) = prediction.rounds(_epoch);
         require(oraclesCalled1, "Round was not successful or not complete");
         
         uint256 currentEpoch = prediction.currentEpoch();
         if(currentEpoch != _epoch){
-            (,,,, bool oraclesCalled2,,,,,,) = prediction.getRound(currentEpoch);
+            (,,,, bool oraclesCalled2) = prediction.rounds(currentEpoch);
             require(!oraclesCalled2, "Current Round is already complete");
         }
         

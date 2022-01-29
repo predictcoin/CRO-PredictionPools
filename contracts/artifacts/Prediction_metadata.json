@@ -1,0 +1,1579 @@
+{
+	"compiler": {
+		"version": "0.8.2+commit.661d1103"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "previousAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "AdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "beacon",
+						"type": "address"
+					}
+				],
+				"name": "BeaconUpgraded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Claim",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "int256",
+						"name": "price",
+						"type": "int256"
+					}
+				],
+				"name": "EndRound",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "NewAdminAddress",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "betAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "NewBetAmount",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bufferSeconds",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "intervalSeconds",
+						"type": "uint256"
+					}
+				],
+				"name": "NewBufferAndIntervalSeconds",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "NewOperatorAddress",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "NewOracle",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oracleUpdateAllowance",
+						"type": "uint256"
+					}
+				],
+				"name": "NewOracleUpdateAllowance",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenMaxBet",
+						"type": "uint256"
+					}
+				],
+				"name": "NewTokenMaxBet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					}
+				],
+				"name": "Pause",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PredictBear",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PredictBull",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					}
+				],
+				"name": "StartRound",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "TokenAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenRecovery",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "TokenRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "TreasuryClaim",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					}
+				],
+				"name": "Unpause",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "BNB",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_TREASURY_FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					}
+				],
+				"name": "addTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "adminAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "betAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "betSeconds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bufferSeconds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "epochs",
+						"type": "uint256[]"
+					}
+				],
+				"name": "claim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "crp",
+				"outputs": [
+					{
+						"internalType": "contract IERC20Upgradeable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "int256[]",
+						"name": "prices",
+						"type": "int256[]"
+					}
+				],
+				"name": "endRound",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_round",
+						"type": "uint256"
+					}
+				],
+				"name": "getRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lockedTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "closeTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "oraclesCalled",
+						"type": "bool"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "int256[]",
+						"name": "lockedPrices",
+						"type": "int256[]"
+					},
+					{
+						"internalType": "int256[]",
+						"name": "closePrices",
+						"type": "int256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "bets",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_round",
+						"type": "uint256"
+					}
+				],
+				"name": "getStats",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "bulls",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "bears",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTokens",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cursor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "size",
+						"type": "uint256"
+					}
+				],
+				"name": "getUserRounds",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "enum Prediction.Position",
+								"name": "position",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "token",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "claimed",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Prediction.BetInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserRoundsLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_crp",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_adminAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_operatorAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_intervalSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bufferSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_betSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_betAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenMaxBet",
+						"type": "uint256"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "intervalSeconds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "ledger",
+				"outputs": [
+					{
+						"internalType": "enum Prediction.Position",
+						"name": "position",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "claimed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "preder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "round",
+						"type": "uint256"
+					}
+				],
+				"name": "lostRound",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "operatorAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "predictBear",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "predictBull",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "recoverToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "refundable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_indexes",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					}
+				],
+				"name": "removeTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "rounds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lockedTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "closeTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "oraclesCalled",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_adminAddress",
+						"type": "address"
+					}
+				],
+				"name": "setAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_betAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "setBetAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bufferSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_intervalSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_betSeconds",
+						"type": "uint256"
+					}
+				],
+				"name": "setBufferBetAndIntervalSeconds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operatorAddress",
+						"type": "address"
+					}
+				],
+				"name": "setOperator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenMaxBet",
+						"type": "uint256"
+					}
+				],
+				"name": "setTokenMaxBet",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "int256[]",
+						"name": "prices",
+						"type": "int256[]"
+					}
+				],
+				"name": "startRound",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenMaxBet",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "treasuryAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					}
+				],
+				"name": "upgradeTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "userRounds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "preder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "round",
+						"type": "uint256"
+					}
+				],
+				"name": "wonRound",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"claim(uint256[])": {
+					"params": {
+						"epochs": ": array of epochs"
+					}
+				},
+				"claimTreasury()": {
+					"details": "Callable by admin"
+				},
+				"getUserRounds(address,uint256,uint256)": {
+					"params": {
+						"cursor": ": cursor",
+						"size": ": size",
+						"user": ": user address"
+					}
+				},
+				"getUserRoundsLength(address)": {
+					"params": {
+						"user": ": user address"
+					}
+				},
+				"initialize(address,address,address,uint256,uint256,uint256,uint256,uint256)": {
+					"params": {
+						"_adminAddress": ": admin address",
+						"_betAmount": ": minimum bet amounts (in wei)",
+						"_bufferSeconds": ": buffer of time for resolution of price",
+						"_intervalSeconds": ": number of time within an interval",
+						"_operatorAddress": ": operator address"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"pause()": {
+					"details": "Callable by admin or operator"
+				},
+				"paused()": {
+					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"predictBear(uint256,address)": {
+					"params": {
+						"epoch": ": epoch"
+					}
+				},
+				"predictBull(uint256,address)": {
+					"params": {
+						"epoch": ": epoch"
+					}
+				},
+				"recoverToken(address,uint256)": {
+					"details": "Callable by owner",
+					"params": {
+						"_amount": ": token amount",
+						"_token": ": token address"
+					}
+				},
+				"refundable(uint256,address)": {
+					"params": {
+						"epoch": ": epoch",
+						"user": ": user address"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setAdmin(address)": {
+					"details": "Callable by owner"
+				},
+				"setBetAmount(uint256)": {
+					"details": "Callable by admin"
+				},
+				"setBufferBetAndIntervalSeconds(uint256,uint256,uint256)": {
+					"details": "Callable by admin"
+				},
+				"setOperator(address)": {
+					"details": "Callable by admin"
+				},
+				"setTokenMaxBet(uint256)": {
+					"params": {
+						"_tokenMaxBet": "max no. of bets for each token"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"upgradeTo(address)": {
+					"details": "Upgrade the implementation of the proxy to `newImplementation`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"details": "Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				}
+			},
+			"title": "PancakePredictionV2",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"claim(uint256[])": {
+					"notice": "Claim refund for an array of epochs"
+				},
+				"claimTreasury()": {
+					"notice": "Claim all rewards in treasury"
+				},
+				"getUserRounds(address,uint256,uint256)": {
+					"notice": "Returns round epochs and bet information for a user that has participated"
+				},
+				"getUserRoundsLength(address)": {
+					"notice": "Returns round epochs length"
+				},
+				"initialize(address,address,address,uint256,uint256,uint256,uint256,uint256)": {
+					"notice": "Constructor"
+				},
+				"lostRound(address,uint256)": {
+					"notice": "Checks if an address lost a round"
+				},
+				"pause()": {
+					"notice": "called by the admin to pause, triggers stopped state"
+				},
+				"predictBear(uint256,address)": {
+					"notice": "Bet bear position"
+				},
+				"predictBull(uint256,address)": {
+					"notice": "Bet bull position"
+				},
+				"recoverToken(address,uint256)": {
+					"notice": "It allows the owner to recover tokens sent to the contract by mistake"
+				},
+				"refundable(uint256,address)": {
+					"notice": "Get the refundable stats of specific epoch and user account"
+				},
+				"setAdmin(address)": {
+					"notice": "Set admin address"
+				},
+				"setBetAmount(uint256)": {
+					"notice": "Set betAmount"
+				},
+				"setBufferBetAndIntervalSeconds(uint256,uint256,uint256)": {
+					"notice": "Set buffer and interval (in seconds)"
+				},
+				"setOperator(address)": {
+					"notice": "Set operator address"
+				},
+				"setTokenMaxBet(uint256)": {
+					"notice": "sets the number of bets each token in a round can have"
+				},
+				"unpause()": {
+					"notice": "called by the admin to unpause, returns to normal state"
+				},
+				"wonRound(address,uint256)": {
+					"notice": "Checks if an address won a round"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/prediction.sol": "Prediction"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 99
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+			"keccak256": "0x9ffedb33e192f8821cbaead72596c79ea87fb28a73f8d3a9f5004449799f8e1b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a4d3a7c2729f266c54345044baf1080fb4a85208059cacea28c95622af4371db",
+				"dweb:/ipfs/QmcHCX8reksSoQWjjYRcVoEHckz8AQ7CHKiKfzocpQq3Lg"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+			"keccak256": "0xba3e051005a0b7f77c465dbcfe6366ce6a72e3845028277e1f794e5e8864e017",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bee8f99df2b2366851670f072b010a104be5168555d881a863bfa31e94bab0c2",
+				"dweb:/ipfs/QmRE6UfrS9JoBtYk4cqnCmSoVT7xyu4a8SEZoHRLqRM4yn"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
+			"keccak256": "0x24b86ac8c005b8c654fbf6ac34a5a4f61580d7273541e83e013e89d66fbf0908",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4dbfe1a3b3b3fb64294ce41fd2ad362e7b7012208117864f42c1a67620a6d5c1",
+				"dweb:/ipfs/QmVMU5tWt7zBQMmf5cpMX8UMHV86T3kFeTxBTBjFqVWfoJ"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+			"keccak256": "0x68861bcc80cacbd498efde75aab6c74a486cc48262660d326c8d7530d9752097",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5beb2713aca05976562500789329e8c41320d00bd68ea9247856ec73894c3e3f",
+				"dweb:/ipfs/QmQKwkpofsZYAzMZs7uNL7Qq58zVBuhoZCGpD6bJdUwyqy"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
+			"keccak256": "0xed65883d4af8d00c76ff9f1b7758c5d8ac4ab82da60f9743c74d31b754b06bc0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://78aad9c6e29ac5fe4044a9550a20106ec6b4c3fc5a4a3ebda81efbba9261681f",
+				"dweb:/ipfs/QmTP1Fe1jJGZLja2aRKy3MyqaZ8zYjjcujSC1DNPApDe5Q"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+			"keccak256": "0xf93da311a3b34a8363a759c404d575746fa38351fb29ecd646c608e27219ebec",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1cfc8c4107004a7ad97a340df1b6841d0eb0aacf4ba1d58f0cfbd0de73493cb7",
+				"dweb:/ipfs/QmeBT3UzVzVEaPpisoHFFEGdUxAqNR3pmRnvn1oKseYSSv"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
+			"keccak256": "0xf3a9b766b0d0456f79d9402db4b49bb16c414f3f9d65244475c0704b6c66dcf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2be836e0695ca8a93f81a4bb6a7f74469ba97fb6e33948739c7f65a5f4110e4f",
+				"dweb:/ipfs/QmTcsEpD8XJHtA5vjJ2mbrgYyDYQoMF3zuAEMTu6KFSXjX"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+			"keccak256": "0x5ca0eb1120133a6d0799752532d4638048391823a2b623c4fe9ff46e262266fb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://439a76e6c35f75a7253f1ff68c99f399094233b0ddecac6bd19093f0d18980c4",
+				"dweb:/ipfs/QmYGY3jR6A4k8KWzHjGG249EWR6KtoENzdPGv6MZRFhdEW"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol": {
+			"keccak256": "0x3e26a49d2fa5ef8338b8a9467c91e54f417cb07e849b1cc0f4ebc4d2a147938e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ca7bd5deecc4abd97f0218708c6e004953971cc62de68557fe0c6c8607f85a65",
+				"dweb:/ipfs/QmRw3dGdS6ksHZiqcPRknYvWXfYP2hTj21PhkLjXyEVEf6"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+			"keccak256": "0x3f0f878c796dfc7feba6d3c4e3e526c14c7deae8b7bfc71088e3f38fab0d77b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://69bf7d357ce97852f4fb71045919b1bb2c0ad0c820e3f06b9dd4451b2dc5a343",
+				"dweb:/ipfs/QmWt96ZviufDu2qqS7Ln6UCJjfLyoFKbo6YKn54ao3o94z"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x0b0d548f6381370d394f7a434f994dc678b3ef3e755de106109d61343a685ea7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d8a3d42f1333d4224b7e6b7914e7ef5ee6d86586a3529bd1da15cbeece0d25b3",
+				"dweb:/ipfs/QmXmFqePuCWzBcz9KyBepE7joHMg8jSjcmd5iayyG7jm3y"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
+			"keccak256": "0x422c3d27d0d5681cea93acbb0dcb175fa5b461b5b7731da7ff77e51f0f0174c7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://feb47206935cf956f60ffd76b8bad047102c7acbf2aab10157a235b7af66fa39",
+				"dweb:/ipfs/QmZQ39kpPhCdN9fyZ7BMwnK26tHjiP6QZDeL8tMSPDjxan"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol": {
+			"keccak256": "0x0004699ba89fa356eb0d58d815b42dcf52eccd2765e95256631b838bce2556bc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7e6cb3c823dc1c746f7daaf9bc600ef035346fa36fec9e3f11982849c04ebe33",
+				"dweb:/ipfs/QmaaCYR9PZ94eJeN9tAwkBc3rPTtJsCqGbqHRzFmrMEkWq"
+			]
+		},
+		"contracts/prediction.sol": {
+			"keccak256": "0x599aa5e3c53adfb90b1e96a860ceec951e9012716b8d53a3411e65326d9b149e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://da804b29d894b6aa4d5510d985e442c7ddccdefd1f90736f60e9e2a86fbb90ef",
+				"dweb:/ipfs/QmT89T7H9GgMD8nxayX8RRifXAVvnqUfzD9EXnt1KzhffR"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
+				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
+			]
+		}
+	},
+	"version": 1
+}

@@ -47,13 +47,13 @@ contract PredictionWallet is AccessControl, ReentrancyGuard {
         }
     }
     
-    function safeTokenTransfer(IBEP20 _token, address _to, uint256 _amount) external onlyRole("winnerPredictionPool") nonReentrant returns(uint) {
-        uint256 tokenBal = _token.balanceOf(address(this));
+    function safeTokenTransfer(address _token, address _to, uint256 _amount) external onlyRole("loserPredictionPool") nonReentrant returns(uint) {
+        uint256 tokenBal = IBEP20(_token).balanceOf(address(this));
         if (_amount > tokenBal) {
-            _token.safeTransfer(_to, tokenBal);
+            IBEP20(_token).safeTransfer(_to, tokenBal);
             return tokenBal;
         } else {
-            _token.safeTransfer(_to, _amount);
+            IBEP20(_token).safeTransfer(_to, _amount);
             return _amount;
         }
     }

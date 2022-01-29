@@ -365,8 +365,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/PredictionWallet.sol": {
-      "lastModificationDate": 1642611508911,
-      "contentHash": "dffc5fb2bb5fa30922bcc91b97816870",
+      "lastModificationDate": 1643425465599,
+      "contentHash": "09efd73d1f4f420d175e557bf9f26bb6",
       "sourceName": "contracts/PredictionWallet.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -440,8 +440,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/utils/SafeBEP20.sol": {
-      "lastModificationDate": 1642647697403,
-      "contentHash": "001edc63664f6b9beb22efb089a35dff",
+      "lastModificationDate": 1643407705650,
+      "contentHash": "e44a69dc818507310961e15ae2c85d25",
       "sourceName": "contracts/utils/SafeBEP20.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -468,7 +468,7 @@
       },
       "imports": [
         "../interfaces/IBEP20.sol",
-        "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol"
+        "@openzeppelin/contracts/utils/Address.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -548,8 +548,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/WinnerPredictionPool.sol": {
-      "lastModificationDate": 1642622440412,
-      "contentHash": "03245e6c3b06ef8e2ef70a54f3aff188",
+      "lastModificationDate": 1643433073337,
+      "contentHash": "152cd74085c3e886d17d1ac992c7292e",
       "sourceName": "contracts/WinnerPredictionPool.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -575,14 +575,15 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./interfaces/IBEP20.sol",
-        "./interfaces/IPrediction.sol",
-        "./utils/SafeBEP20.sol",
+        "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "./PredictionWallet.sol"
+        "./PredictionWallet.sol",
+        "./interfaces/IBEP20.sol",
+        "./Prediction.sol"
       ],
       "versionPragmas": [
         "0.8.2"
@@ -1072,7 +1073,7 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/Prediction.sol": {
-      "lastModificationDate": 1642645915502,
+      "lastModificationDate": 1643422430897,
       "contentHash": "8f267ba2543d2fa15eb0651498f44851",
       "sourceName": "contracts/Prediction.sol",
       "solcConfig": {
@@ -1189,8 +1190,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/LoserPredictionPool.sol": {
-      "lastModificationDate": 1642647659713,
-      "contentHash": "813f9df2c9fa4477a18696e043bb047b",
+      "lastModificationDate": 1643433007808,
+      "contentHash": "b28dfdf5bbfcf22e592042e8fad8ec4e",
       "sourceName": "contracts/LoserPredictionPool.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -1216,14 +1217,15 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./interfaces/IBEP20.sol",
-        "./interfaces/IPrediction.sol",
-        "./utils/SafeBEP20.sol",
+        "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "./PredictionWallet.sol"
+        "./PredictionWallet.sol",
+        "./interfaces/IBEP20.sol",
+        "./Prediction.sol"
       ],
       "versionPragmas": [
         "0.8.2"
@@ -1233,7 +1235,7 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/Tokens.sol": {
-      "lastModificationDate": 1642646100764,
+      "lastModificationDate": 1643432838659,
       "contentHash": "9c30dc1ea16884c99e6c881a240dca57",
       "sourceName": "contracts/Tokens.sol",
       "solcConfig": {
@@ -1269,6 +1271,41 @@
       "artifacts": [
         "CRP",
         "MFF"
+      ]
+    },
+    "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/node_modules/@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol": {
+      "lastModificationDate": 1642638313362,
+      "contentHash": "79fabca470327c2d2b7367abeef7e097",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.2",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeMathUpgradeable"
       ]
     }
   }
