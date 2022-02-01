@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.2+commit.661d1103"
 	},
 	"language": "Solidity",
 	"output": {
@@ -330,7 +330,7 @@
 		"compilationTarget": {
 			"contracts/Tokens.sol": "MFF"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -375,11 +375,11 @@
 			]
 		},
 		"contracts/Tokens.sol": {
-			"keccak256": "0xb51acebbe4a1b44d71b0c3fc5f70bd6b286aa9c7d800a2215bce31fbb7531b5e",
+			"keccak256": "0xfcf5f61c57c69dcb4b341f1cfa1d030082e48f804e2cc3d26c39e875cb2ff23b",
 			"license": "Unlicense",
 			"urls": [
-				"bzz-raw://19ebe341333d2d1761e05030d5a525813d0e7357ffe16b05a617a1267829407e",
-				"dweb:/ipfs/QmQrqAeL4Wo7gXXa2HYrebeg1dPKPxTekmv7HZLjpDHVgg"
+				"bzz-raw://bf07ddefc1f5c70303e4667b85ed6d99a4f02bf4b3ab04420146f484cee6e4b1",
+				"dweb:/ipfs/QmeDCNxqWAbcPBedeKR1RhHAq4PpdBMBPNGpUGYMRqpUUr"
 			]
 		},
 		"hardhat/console.sol": {

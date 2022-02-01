@@ -12,8 +12,6 @@ const main = async () => {
   await wallet.grantRole(ethers.utils.formatBytes32String("loserPredictionPool"), boss);
 
   console.log("Prediction Wallet deployed to "+wallet.address);
-
-  
 }
 
 

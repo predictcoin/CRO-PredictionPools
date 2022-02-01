@@ -10,7 +10,7 @@ contract CRP is ERC20("CRO Prediction","CRP"){
     }
 }
 
-contract MFF is ERC20("MFF Finance","MFF"){
+contract MFF is ERC20("MMF Finance","MMF"){
     constructor(){
         _mint(msg.sender, 1000000000000000000000000000);
     }
