@@ -294,7 +294,7 @@
           {
             "contract": "WinnerPredictionPool",
             "label": "prediction",
-            "type": "t_contract(Prediction)7277",
+            "type": "t_contract(Prediction)7283",
             "src": "contracts/WinnerPredictionPool.sol:51"
           },
           {
@@ -312,7 +312,7 @@
           {
             "contract": "WinnerPredictionPool",
             "label": "wallet",
-            "type": "t_contract(PredictionWallet)7497",
+            "type": "t_contract(PredictionWallet)7503",
             "src": "contracts/WinnerPredictionPool.sol:57"
           },
           {
@@ -324,13 +324,13 @@
           {
             "contract": "WinnerPredictionPool",
             "label": "poolInfo",
-            "type": "t_array(t_struct(PoolInfo)7573_storage)dyn_storage",
+            "type": "t_array(t_struct(PoolInfo)7579_storage)dyn_storage",
             "src": "contracts/WinnerPredictionPool.sol:61"
           },
           {
             "contract": "WinnerPredictionPool",
             "label": "userInfo",
-            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)7562_storage))",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)7568_storage))",
             "src": "contracts/WinnerPredictionPool.sol:63"
           },
           {
@@ -362,19 +362,19 @@
           "t_contract(IERC20Upgradeable)967": {
             "label": "contract IERC20Upgradeable"
           },
-          "t_contract(Prediction)7277": {
+          "t_contract(Prediction)7283": {
             "label": "contract Prediction"
           },
           "t_uint256": {
             "label": "uint256"
           },
-          "t_contract(PredictionWallet)7497": {
+          "t_contract(PredictionWallet)7503": {
             "label": "contract PredictionWallet"
           },
-          "t_array(t_struct(PoolInfo)7573_storage)dyn_storage": {
+          "t_array(t_struct(PoolInfo)7579_storage)dyn_storage": {
             "label": "struct WinnerPredictionPool.PoolInfo[]"
           },
-          "t_struct(PoolInfo)7573_storage": {
+          "t_struct(PoolInfo)7579_storage": {
             "label": "struct WinnerPredictionPool.PoolInfo",
             "members": [
               {
@@ -399,16 +399,436 @@
               }
             ]
           },
-          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)7562_storage))": {
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)7568_storage))": {
             "label": "mapping(uint256 => mapping(address => struct WinnerPredictionPool.UserInfo))"
           },
-          "t_mapping(t_address,t_struct(UserInfo)7562_storage)": {
+          "t_mapping(t_address,t_struct(UserInfo)7568_storage)": {
             "label": "mapping(address => struct WinnerPredictionPool.UserInfo)"
           },
           "t_address": {
             "label": "address"
           },
-          "t_struct(UserInfo)7562_storage": {
+          "t_struct(UserInfo)7568_storage": {
+            "label": "struct WinnerPredictionPool.UserInfo",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "rewardDebt",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "20b852487971f639cbc0634cca7e20351904e106d35b63957e86233382d2ba4f": {
+      "address": "0x371dda297282902F0dA7E0a50085838e5702feaC",
+      "txHash": "0x62dfaa89de7ec1bb925c1a993f05ede61cfc9e0fe3bbe44f4aef8f5ba3a02f99",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:97"
+          },
+          {
+            "contract": "ERC1967UpgradeUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:215"
+          },
+          {
+            "contract": "UUPSUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:81"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "CRP",
+            "type": "t_contract(IERC20Upgradeable)967",
+            "src": "contracts/LoserPredictionPool.sol:51"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "rewardToken",
+            "type": "t_contract(IERC20Upgradeable)967",
+            "src": "contracts/LoserPredictionPool.sol:53"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "prediction",
+            "type": "t_contract(Prediction)7291",
+            "src": "contracts/LoserPredictionPool.sol:55"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "rewardTokenPerBlock",
+            "type": "t_uint256",
+            "src": "contracts/LoserPredictionPool.sol:57"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "BONUS_MULTIPLIER",
+            "type": "t_uint256",
+            "src": "contracts/LoserPredictionPool.sol:59"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "wallet",
+            "type": "t_contract(PredictionWallet)7511",
+            "src": "contracts/LoserPredictionPool.sol:61"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "maxCRPDeposit",
+            "type": "t_uint256",
+            "src": "contracts/LoserPredictionPool.sol:62"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "poolInfo",
+            "type": "t_array(t_struct(PoolInfo)4122_storage)dyn_storage",
+            "src": "contracts/LoserPredictionPool.sol:65"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "userInfo",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)4111_storage))",
+            "src": "contracts/LoserPredictionPool.sol:67"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "allocPoint",
+            "type": "t_uint256",
+            "src": "contracts/LoserPredictionPool.sol:69"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "startBlock",
+            "type": "t_uint256",
+            "src": "contracts/LoserPredictionPool.sol:71"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "totalRewardDebt",
+            "type": "t_uint256",
+            "src": "contracts/LoserPredictionPool.sol:73"
+          },
+          {
+            "contract": "LoserPredictionPool",
+            "label": "operatorAddress",
+            "type": "t_address",
+            "src": "contracts/LoserPredictionPool.sol:75"
+          }
+        ],
+        "types": {
+          "t_contract(IERC20Upgradeable)967": {
+            "label": "contract IERC20Upgradeable"
+          },
+          "t_contract(Prediction)7291": {
+            "label": "contract Prediction"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(PredictionWallet)7511": {
+            "label": "contract PredictionWallet"
+          },
+          "t_array(t_struct(PoolInfo)4122_storage)dyn_storage": {
+            "label": "struct LoserPredictionPool.PoolInfo[]"
+          },
+          "t_struct(PoolInfo)4122_storage": {
+            "label": "struct LoserPredictionPool.PoolInfo",
+            "members": [
+              {
+                "label": "allocPoint",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastRewardBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "accRewardTokenPerShare",
+                "type": "t_uint256"
+              },
+              {
+                "label": "epoch",
+                "type": "t_uint256"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)4111_storage))": {
+            "label": "mapping(uint256 => mapping(address => struct LoserPredictionPool.UserInfo))"
+          },
+          "t_mapping(t_address,t_struct(UserInfo)4111_storage)": {
+            "label": "mapping(address => struct LoserPredictionPool.UserInfo)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_struct(UserInfo)4111_storage": {
+            "label": "struct LoserPredictionPool.UserInfo",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "rewardDebt",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "27a5c21dfd393c1f9e5bc4d5f8070ed6f7795936df9f9242a5805649a903fd5b": {
+      "address": "0xeBE81Ce2A49822cb3fE880d31f45f7BF4c271CC9",
+      "txHash": "0x50e4b24da343bd76b6d3865ed8353e6bc17b17193f90992ddc4505a664289728",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:97"
+          },
+          {
+            "contract": "ERC1967UpgradeUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:215"
+          },
+          {
+            "contract": "UUPSUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:81"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "CRP",
+            "type": "t_contract(IERC20Upgradeable)967",
+            "src": "contracts/WinnerPredictionPool.sol:49"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "prediction",
+            "type": "t_contract(Prediction)7291",
+            "src": "contracts/WinnerPredictionPool.sol:51"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "CRPPerBlock",
+            "type": "t_uint256",
+            "src": "contracts/WinnerPredictionPool.sol:53"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "BONUS_MULTIPLIER",
+            "type": "t_uint256",
+            "src": "contracts/WinnerPredictionPool.sol:55"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "wallet",
+            "type": "t_contract(PredictionWallet)7511",
+            "src": "contracts/WinnerPredictionPool.sol:57"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "maxCRPDeposit",
+            "type": "t_uint256",
+            "src": "contracts/WinnerPredictionPool.sol:58"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "poolInfo",
+            "type": "t_array(t_struct(PoolInfo)7587_storage)dyn_storage",
+            "src": "contracts/WinnerPredictionPool.sol:61"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "userInfo",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)7576_storage))",
+            "src": "contracts/WinnerPredictionPool.sol:63"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "allocPoint",
+            "type": "t_uint256",
+            "src": "contracts/WinnerPredictionPool.sol:65"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "startBlock",
+            "type": "t_uint256",
+            "src": "contracts/WinnerPredictionPool.sol:67"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "totalRewardDebt",
+            "type": "t_uint256",
+            "src": "contracts/WinnerPredictionPool.sol:69"
+          },
+          {
+            "contract": "WinnerPredictionPool",
+            "label": "operatorAddress",
+            "type": "t_address",
+            "src": "contracts/WinnerPredictionPool.sol:71"
+          }
+        ],
+        "types": {
+          "t_contract(IERC20Upgradeable)967": {
+            "label": "contract IERC20Upgradeable"
+          },
+          "t_contract(Prediction)7291": {
+            "label": "contract Prediction"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(PredictionWallet)7511": {
+            "label": "contract PredictionWallet"
+          },
+          "t_array(t_struct(PoolInfo)7587_storage)dyn_storage": {
+            "label": "struct WinnerPredictionPool.PoolInfo[]"
+          },
+          "t_struct(PoolInfo)7587_storage": {
+            "label": "struct WinnerPredictionPool.PoolInfo",
+            "members": [
+              {
+                "label": "allocPoint",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastRewardBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "accCRPPerShare",
+                "type": "t_uint256"
+              },
+              {
+                "label": "epoch",
+                "type": "t_uint256"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)7576_storage))": {
+            "label": "mapping(uint256 => mapping(address => struct WinnerPredictionPool.UserInfo))"
+          },
+          "t_mapping(t_address,t_struct(UserInfo)7576_storage)": {
+            "label": "mapping(address => struct WinnerPredictionPool.UserInfo)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_struct(UserInfo)7576_storage": {
             "label": "struct WinnerPredictionPool.UserInfo",
             "members": [
               {

@@ -365,7 +365,7 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/PredictionWallet.sol": {
-      "lastModificationDate": 1643425465599,
+      "lastModificationDate": 1648553113209,
       "contentHash": "09efd73d1f4f420d175e557bf9f26bb6",
       "sourceName": "contracts/PredictionWallet.sol",
       "solcConfig": {
@@ -548,8 +548,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/WinnerPredictionPool.sol": {
-      "lastModificationDate": 1643617951971,
-      "contentHash": "152cd74085c3e886d17d1ac992c7292e",
+      "lastModificationDate": 1650493145179,
+      "contentHash": "890e5c693e03435aef397483de01f644",
       "sourceName": "contracts/WinnerPredictionPool.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -1073,7 +1073,7 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/Prediction.sol": {
-      "lastModificationDate": 1643616583600,
+      "lastModificationDate": 1650151333479,
       "contentHash": "8f267ba2543d2fa15eb0651498f44851",
       "sourceName": "contracts/Prediction.sol",
       "solcConfig": {
@@ -1190,8 +1190,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/LoserPredictionPool.sol": {
-      "lastModificationDate": 1643618327015,
-      "contentHash": "b28dfdf5bbfcf22e592042e8fad8ec4e",
+      "lastModificationDate": 1650492895948,
+      "contentHash": "c624d038251056bc15ff790d0689f51b",
       "sourceName": "contracts/LoserPredictionPool.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -1235,7 +1235,7 @@
       ]
     },
     "/Users/nonse/Desktop/Work/CRO Predict/Prediction Pools/contracts/Tokens.sol": {
-      "lastModificationDate": 1643618326699,
+      "lastModificationDate": 1644483781861,
       "contentHash": "c77eb8447d2ef761517af62fa936383c",
       "sourceName": "contracts/Tokens.sol",
       "solcConfig": {
