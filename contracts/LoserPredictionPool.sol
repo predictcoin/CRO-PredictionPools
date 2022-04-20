@@ -204,7 +204,9 @@ contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradea
                 block.number
             );
             uint256 reward = multiplier
-            .mul(rewardTokenPerBlock);
+                .mul(rewardTokenPerBlock)
+                .mul(pool.allocPoint)
+                .div(allocPoint);
 
             uint256 rewardTokenBal = rewardToken.balanceOf(address(wallet)).sub(
                 totalRewardDebt
@@ -231,7 +233,10 @@ contract LoserPredictionPool is Initializable, PausableUpgradeable, UUPSUpgradea
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
         uint256 reward = multiplier
-            .mul(rewardTokenPerBlock);
+            .mul(rewardTokenPerBlock)
+            .mul(pool.allocPoint)
+            .div(allocPoint);
+            
         uint256 rewardTokenBal = rewardToken.balanceOf(address(wallet)).sub(totalRewardDebt);
         if (reward >= rewardTokenBal) {
             reward = rewardTokenBal;

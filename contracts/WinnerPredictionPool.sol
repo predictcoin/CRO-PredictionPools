@@ -198,7 +198,9 @@ contract WinnerPredictionPool is Initializable, PausableUpgradeable, UUPSUpgrade
                 block.number
             );
             uint256 CRPReward = multiplier
-            .mul(CRPPerBlock);
+                    .mul(CRPPerBlock)
+                    .mul(pool.allocPoint)
+                    .div(allocPoint);
 
             uint256 CRPBal = CRP.balanceOf(address(wallet)).sub(
                 totalRewardDebt
@@ -226,7 +228,10 @@ contract WinnerPredictionPool is Initializable, PausableUpgradeable, UUPSUpgrade
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
         uint256 CRPReward = multiplier
-            .mul(CRPPerBlock);
+                .mul(CRPPerBlock)
+                .mul(pool.allocPoint)
+                .div(allocPoint);
+                
         uint256 CRPBal = CRP.balanceOf(address(wallet)).sub(totalRewardDebt);
         if (CRPReward >= CRPBal) {
             CRPReward = CRPBal;
